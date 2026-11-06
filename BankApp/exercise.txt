@@ -1,0 +1,48 @@
+BANK APP EXERCISE :
+-----------------
+1. IACCOUNT ==> Deposit() + Withdraw() --->defining the contract ---> greatgrandfather
+|
+|
+2. ABSTRACTBANKACCOUNT : IACCOUNT ==> Implement-> Deposit() + Implement-> Withdraw() + DisplayAccountDetails() + *abstract CalculateMonthlyBenefit() 
+                        -- grandfather
+
+|
+|
+3. BANKACCOUNT : ABSTRACTBANKACCOUNT ==> Implement overloading-> Deposit() + Implement overriding-> CalculateMonthlyBenefit() 
+                                                + * virtual CalculateMonthlyCharge() -- father
+
+
+//children
+4. SAVINGSACCOUNT : BANKACCOUNT ==> Implement overriding-> CalculateMonthlyBenefit() + Implement overriding-> CalculateMonthlyCharge()
+5. CURRENTACCOUNT : BANKACCOUNT ==> Implement overriding-> CalculateMonthlyBenefit() + Implement overriding-> CalculateMonthlyCharge()
+
+
+
+//grandfather 
+deposit(decimal amount);
+//father
+    public void Deposit(decimal amount) //signature  1 param
+    {
+        if (amount <= 0) //if this condition is true
+        {
+            Console.WriteLine("Invalid deposit amount!");
+            return;
+        }
+        else
+        {
+             balance += amount; // storing/updateing the balance           
+             Console.WriteLine($"Deposited: ₹{amount}");
+        }
+       
+    }
+
+//child class : father
+    public void Deposit(decimal amount, string description) //2 param
+    {
+        Deposit(amount);
+
+        if (amount > 0)
+        {
+            Console.WriteLine($"Transaction Details: {description}");
+        }
+    }

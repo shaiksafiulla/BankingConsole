@@ -7,7 +7,7 @@ namespace BankApp;
 // A class is a blueprint used to create objects.
 // ======================================================
 
-public class BankAccount : AbstractBankAccount
+public class BankAccount : AbstractBankAccount //deposit ,  interface also have deposit
 {
     public BankAccount(
         string accountNumber,
@@ -127,7 +127,7 @@ public class CurrentAccount : BankAccount
 // Abstract classes provide a common foundation and require child classes to implement abstract methods.
 // ======================================================
 
-public abstract class AbstractBankAccount : IAccount
+public abstract class AbstractBankAccount : IAccount //2 mthodss
 {
     // Encapsulation: Private balance field
     private decimal balance;
@@ -138,7 +138,7 @@ public abstract class AbstractBankAccount : IAccount
     // Read-only balance
     public decimal Balance
     {
-        get { return balance; }
+        get { return balance; } //returning the private modifier balance
     }
 
     // Constructor
@@ -153,29 +153,35 @@ public abstract class AbstractBankAccount : IAccount
         balance = initialBalance >= 0 ? initialBalance : 0;
     }
 
+    // var abs = new AbstractBankAccount("123","john")
+
     // Deposit operation
-    public void Deposit(decimal amount)
+    public void Deposit(decimal amount) //signature
     {
-        if (amount <= 0)
+        if (amount <= 0) //if this condition is true
         {
             Console.WriteLine("Invalid deposit amount!");
             return;
         }
-
-        balance += amount;
-        Console.WriteLine($"Deposited: ₹{amount}");
+        else
+        {
+             balance += amount; // storing/updateing the balance           
+             Console.WriteLine($"Deposited: ₹{amount}");
+        }
+       
     }
 
     // Withdraw operation
     public void Withdraw(decimal amount)
     {
-        if (amount <= 0 || amount > balance)
+        //balance = 200 and u want to witdraw of amount 300
+        if (amount <= 0 || amount > balance) 
         {
             Console.WriteLine("Invalid withdrawal!");
             return;
         }
 
-        balance -= amount;
+        balance -= amount;  // storing/updateing the balance  
         Console.WriteLine($"Withdrawn: ₹{amount}");
     }
 
@@ -191,7 +197,11 @@ public abstract class AbstractBankAccount : IAccount
 
     // Abstract method
     public abstract decimal CalculateMonthlyBenefit();
+
+   
 }
+
+
 
 
 // ======================================================
@@ -201,6 +211,6 @@ public abstract class AbstractBankAccount : IAccount
 
 public interface IAccount
 {
-    void Deposit(decimal amount);
-    void Withdraw(decimal amount);
+   void Deposit(decimal amount); //return nothing
+    void Withdraw(decimal amount); //signatures
 }

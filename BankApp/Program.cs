@@ -236,7 +236,7 @@
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static void Main(string[] args) //main entry function
     {
         Console.WriteLine("==================================");
         Console.WriteLine("       BANK APPLICATION");
@@ -249,7 +249,7 @@ public class Program
         // ==========================================
 
         Console.WriteLine("\n1. CLASSES AND OBJECTS");
-
+        //father level
         BankAccount rahulAccount =
             new BankAccount("SB1001", "Rahul", 5000m);
 
@@ -357,13 +357,13 @@ public class Program
         accountService.Withdraw(500m);
 
 
-        // ==========================================
-        // END OF DEMONSTRATION
-        // ==========================================
+        // // ==========================================
+        // // END OF DEMONSTRATION
+        // // ==========================================
 
-        Console.WriteLine("\n==================================");
-        // Console.WriteLine(" ALL SEVEN CONCEPTS DEMONSTRATED");
-        Console.WriteLine("==================================");
+        // Console.WriteLine("\n==================================");
+        // // Console.WriteLine(" ALL SEVEN CONCEPTS DEMONSTRATED");
+        // Console.WriteLine("==================================");
 
     }
 }
