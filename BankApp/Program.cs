@@ -1,4 +1,5 @@
 ﻿using BankApp;
+using System.Threading.Tasks;
 
 #region comments 
   
@@ -236,134 +237,143 @@
 
 public class Program
 {
-    public static void Main(string[] args) //main entry function
+    public static async Task Main(string[] args) //main entry function
     {
-        Console.WriteLine("==================================");
-        Console.WriteLine("       BANK APPLICATION");
-        Console.WriteLine("       C# OOP CONCEPTS");
-        Console.WriteLine("==================================");
-
-
-        // ==========================================
-        // CONCEPT 1: CLASSES AND OBJECTS
-        // ==========================================
-
-        Console.WriteLine("\n1. CLASSES AND OBJECTS");
-        //father level
-        BankAccount rahulAccount =
-            new BankAccount("SB1001", "Rahul", 5000m);
-
-        rahulAccount.DisplayAccountDetails();
-
-
-        // ==========================================
-        // CONCEPT 2: ENCAPSULATION
-        // ==========================================
-
-        Console.WriteLine("\n2. ENCAPSULATION");
-
-        rahulAccount.Deposit(2000m);
-        rahulAccount.Withdraw(1000m);
-
-        Console.WriteLine(
-            $"Available Balance: ₹{rahulAccount.Balance}");
-
-        // Not allowed:
-        // rahulAccount.Balance = 50000;
-
-
-        // ==========================================
-        // CONCEPT 3: INHERITANCE
-        // ==========================================
-
-        Console.WriteLine("\n3. INHERITANCE");
-
-        SavingsAccount savingsAccount =
-            new SavingsAccount("SB1002", "Priya", 10000m, 5m);
-
-        savingsAccount.DisplayAccountDetails();
-        savingsAccount.Deposit(2000m);
-
-        CurrentAccount currentAccount =
-            new CurrentAccount(
-                "CB1001", "Arun", 50000m, "ABC Technologies");
-
-        currentAccount.DisplayAccountDetails();
-
-        Console.WriteLine(
-            $"Business Name: {currentAccount.BusinessName}");
-
-
-        // ==========================================
-        // CONCEPT 4: POLYMORPHISM
-        // ==========================================
-
-        Console.WriteLine("\n4. POLYMORPHISM");
-
-        BankAccount account;
-
-        account = savingsAccount;
-
-        Console.WriteLine(
-            $"Savings Account Charge: ₹{account.CalculateMonthlyCharge()}");
-
-        account = currentAccount;
-
-        Console.WriteLine(
-            $"Current Account Charge: ₹{account.CalculateMonthlyCharge()}");
-
-
-        // ==========================================
-        // CONCEPT 5: OVERLOADING AND OVERRIDING
-        // ==========================================
-
-        Console.WriteLine("\n5. OVERLOADING AND OVERRIDING");
-
-        // Method overloading: First version
-        rahulAccount.Deposit(500m);
-
-        // Method overloading: Second version
-        rahulAccount.Deposit(1000m, "Salary Credit");
-
-        // Method overriding is demonstrated above
-        // through CalculateMonthlyCharge().
-
-
-        // ==========================================
-        // CONCEPT 6: ABSTRACT CLASSES
-        // ==========================================
-
-        Console.WriteLine("\n6. ABSTRACT CLASSES");
-
-        AbstractBankAccount abstractAccount = savingsAccount;
-
-        Console.WriteLine(
-            $"Monthly Benefit: ₹{abstractAccount.CalculateMonthlyBenefit()}");
-
-        // Not allowed:
-        // AbstractBankAccount account = new AbstractBankAccount();
-
-
-        // ==========================================
-        // CONCEPT 7: INTERFACES
-        // ==========================================
-
-        Console.WriteLine("\n7. INTERFACES");
-
-        IAccount accountService = new BankAccount(
-            "SB1003", "John", 4000m);
-
-        accountService.Deposit(1000m);
-        accountService.Withdraw(500m);
+        // Console.WriteLine("==================================");
+        // Console.WriteLine("       BANK APPLICATION");
+        // Console.WriteLine("       C# OOP CONCEPTS");
+        // Console.WriteLine("==================================");
 
 
         // // ==========================================
-        // // END OF DEMONSTRATION
+        // // CONCEPT 1: CLASSES AND OBJECTS
         // // ==========================================
+
+        // Console.WriteLine("\n1. CLASSES AND OBJECTS");
+        // //father level
+        // BankAccount rahulAccount =
+        //     new BankAccount("SB1001", "Rahul", 5000m);
+
+        // rahulAccount.DisplayAccountDetails();
+
+
+        // // ==========================================
+        // // CONCEPT 2: ENCAPSULATION
+        // // ==========================================
+
+        // Console.WriteLine("\n2. ENCAPSULATION");
+
+        // rahulAccount.Deposit(2000m);
+        // rahulAccount.Withdraw(1000m);
+
+        // Console.WriteLine(
+        //     $"Available Balance: ₹{rahulAccount.Balance}");
+
+        // // Not allowed:
+        // // rahulAccount.Balance = 50000;
+
+
+        // // ==========================================
+        // // CONCEPT 3: INHERITANCE
+        // // ==========================================
+
+        // Console.WriteLine("\n3. INHERITANCE");
+
+        // SavingsAccount savingsAccount =
+        //     new SavingsAccount("SB1002", "Priya", 10000m, 5m);
+
+        // savingsAccount.DisplayAccountDetails();
+        // savingsAccount.Deposit(2000m);
+
+        // CurrentAccount currentAccount =
+        //     new CurrentAccount(
+        //         "CB1001", "Arun", 50000m, "ABC Technologies");
+
+        // currentAccount.DisplayAccountDetails();
+
+        // Console.WriteLine(
+        //     $"Business Name: {currentAccount.BusinessName}");
+
+
+        // // ==========================================
+        // // CONCEPT 4: POLYMORPHISM
+        // // ==========================================
+
+        // Console.WriteLine("\n4. POLYMORPHISM");
+
+        // BankAccount account;
+
+        // account = savingsAccount;
+
+        // Console.WriteLine(
+        //     $"Savings Account Charge: ₹{account.CalculateMonthlyCharge()}");
+
+        // account = currentAccount;
+
+        // Console.WriteLine(
+        //     $"Current Account Charge: ₹{account.CalculateMonthlyCharge()}");
+
+
+        // // ==========================================
+        // // CONCEPT 5: OVERLOADING AND OVERRIDING
+        // // ==========================================
+
+        // Console.WriteLine("\n5. OVERLOADING AND OVERRIDING");
+
+        // // Method overloading: First version
+        // rahulAccount.Deposit(500m);
+
+        // // Method overloading: Second version
+        // rahulAccount.Deposit(1000m, "Salary Credit");
+
+        // // Method overriding is demonstrated above
+        // // through CalculateMonthlyCharge().
+
+
+        // // ==========================================
+        // // CONCEPT 6: ABSTRACT CLASSES
+        // // ==========================================
+
+        // Console.WriteLine("\n6. ABSTRACT CLASSES");
+
+        // AbstractBankAccount abstractAccount = savingsAccount;
+
+        // Console.WriteLine(
+        //     $"Monthly Benefit: ₹{abstractAccount.CalculateMonthlyBenefit()}");
+
+        // // Not allowed:
+        // // AbstractBankAccount account = new AbstractBankAccount();
+
+
+        // // ==========================================
+        // // CONCEPT 7: INTERFACES
+        // // ==========================================
+
+        // Console.WriteLine("\n7. INTERFACES");
+
+        // IAccount accountService = new BankAccount(
+        //     "SB1003", "John", 4000m);
+
+        // accountService.Deposit(1000m);
+        // accountService.Withdraw(500m);  
 
         // Console.WriteLine("\n==================================");
-        // // Console.WriteLine(" ALL SEVEN CONCEPTS DEMONSTRATED");
+        // // Console.WriteLine(" ALL OOPS CONCEPTS DEMONSTRATED");
         // Console.WriteLine("==================================");
+
+
+
+        // SECTION 8: MODERN C# CONCEPTS
+
+        ModernCSharpDemo modernCSharp = new ModernCSharpDemo();
+        //modernCSharp.Run();
+        await modernCSharp.RunAsync();
+
+        // SOLID Principles
+       // SolidPrinciples.Demonstrate();
+
+        // Design Patterns
+       // DesignPatterns.Demonstrate();
 
     }
 }
